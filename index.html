@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>ILMK</title>
+
+    <meta name="theme-color" content="#111111">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ILMK">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <p class="subtitle">IL MIO LAVORO</p>
+            <h1>ILMK</h1>
+        </div>
+
+        <button id="settingsButton" class="icon-button">
+            ⚙️
+        </button>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="homePage" class="page active">
+
+            <div class="month-header">
+                <p>Riepilogo</p>
+                <h2 id="currentMonth">Settembre 2026</h2>
+            </div>
+
+            <div class="main-card">
+                <p>Guadagno del mese</p>
+                <h3 id="monthlyEarnings">€ 0,00</h3>
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>⏱</span>
+                    <p>Ore lavorate</p>
+                    <strong id="monthlyHours">0 h</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>💼</span>
+                    <p>Servizi</p>
+                    <strong id="monthlyServices">0</strong>
+                </div>
+
+            </div>
+
+            <button id="newServiceButton" class="primary-button">
+                + Nuovo servizio
+            </button>
+
+            <div class="section-title">
+                <h3>Ultimi servizi</h3>
+                <button id="showAllButton">Vedi tutti</button>
+            </div>
+
+            <div id="recentServices" class="services-list">
+
+                <div class="empty-state">
+                    <div class="empty-icon">💼</div>
+                    <h3>Nessun servizio</h3>
+                    <p>I servizi che aggiungerai compariranno qui.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NUOVO SERVIZIO -->
+        <section id="newServicePage" class="page">
+
+            <div class="page-header">
+                <button class="back-button" data-target="homePage">
+                    ‹
+                </button>
+
+                <h2>Nuovo servizio</h2>
+            </div>
+
+            <form id="serviceForm">
+
+                <label>
+                    Data
+                    <input type="date" id="serviceDate" required>
+                </label>
+
+                <label>
+                    Luogo / Evento
+                    <input
+                        type="text"
+                        id="serviceLocation"
+                        placeholder="Es. Matrimonio, Fiera..."
+                        required
+                    >
+                </label>
+
+                <div class="two-columns">
+
+                    <label>
+                        Ora inizio
+                        <input type="time" id="startTime" required>
+                    </label>
+
+                    <label>
+                        Ora fine
+                        <input type="time" id="endTime" required>
+                    </label>
+
+                </div>
+
+                <div class="two-columns">
+
+                    <label>
+                        Pausa (min)
+                        <input
+                            type="number"
+                            id="breakMinutes"
+                            min="0"
+                            value="0"
+                        >
+                    </label>
+
+                    <label>
+                        Paga €/ora
+                        <input
+                            type="number"
+                            id="hourlyRate"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+                    </label>
+
+                </div>
+
+                <label>
+                    Note
+                    <textarea
+                        id="serviceNotes"
+                        placeholder="Note facoltative..."
+                    ></textarea>
+                </label>
+
+
+                <div class="calculation-card">
+
+                    <div>
+                        <p>Ore lavorate</p>
+                        <strong id="calculatedHours">0 h</strong>
+                    </div>
+
+                    <div>
+                        <p>Guadagno</p>
+                        <strong id="calculatedEarnings">€ 0,00</strong>
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="primary-button">
+                    Salva servizio
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- STORICO -->
+        <section id="historyPage" class="page">
+
+            <div class="page-header">
+                <h2>Storico</h2>
+            </div>
+
+            <div id="historyList" class="services-list"></div>
+
+        </section>
+
+
+        <!-- STATISTICHE -->
+        <section id="statsPage" class="page">
+
+            <div class="page-header">
+                <h2>Statistiche</h2>
+            </div>
+
+            <div class="main-card">
+                <p>Guadagno totale</p>
+                <h3 id="totalEarnings">€ 0,00</h3>
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Ore totali</p>
+                    <strong id="totalHours">0 h</strong>
+                </div>
+
+                <div class="stat-card">
+                    <p>Servizi totali</p>
+                    <strong id="totalServices">0</strong>
+                </div>
+
+            </div>
+
+            <div id="monthlyStats"></div>
+
+        </section>
+
+
+        <!-- IMPOSTAZIONI -->
+        <section id="settingsPage" class="page">
+
+            <div class="page-header">
+
+                <button class="back-button" data-target="homePage">
+                    ‹
+                </button>
+
+                <h2>Impostazioni</h2>
+
+            </div>
+
+            <div class="settings-card">
+
+                <label>
+                    Paga oraria predefinita
+
+                    <div class="currency-input">
+                        <input
+                            type="number"
+                            id="defaultHourlyRate"
+                            min="0"
+                            step="0.01"
+                        >
+                        <span>€/h</span>
+                    </div>
+
+                </label>
+
+                <button id="saveSettings" class="primary-button">
+                    Salva impostazioni
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BARRA IN BASSO -->
+    <nav class="bottom-nav">
+
+        <button class="nav-item active" data-page="homePage">
+            <span>⌂</span>
+            <small>Home</small>
+        </button>
+
+        <button class="nav-item" data-page="historyPage">
+            <span>☷</span>
+            <small>Storico</small>
+        </button>
+
+        <button class="nav-add" id="navAddButton">
+            +
+        </button>
+
+        <button class="nav-item" data-page="statsPage">
+            <span>▥</span>
+            <small>Statistiche</small>
+        </button>
+
+        <button class="nav-item" data-page="settingsPage">
+            <span>⚙</span>
+            <small>Impostazioni</small>
+        </button>
+
+    </nav>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>

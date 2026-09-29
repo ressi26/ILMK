@@ -1,0 +1,834 @@
+/* =========================
+   ILMK - STILE GENERALE
+   ========================= */
+
+:root {
+    --background: #f4f5f7;
+    --card: #ffffff;
+    --text: #111111;
+    --secondary-text: #737373;
+    --border: #e8e8e8;
+
+    --primary: #111111;
+    --primary-text: #ffffff;
+
+    --success: #18864b;
+
+    --radius: 20px;
+    --small-radius: 14px;
+
+    --nav-height: 82px;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+
+    min-height: 100vh;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        calc(20px + env(safe-area-inset-top))
+        20px
+        15px;
+
+    background: var(--background);
+
+    max-width: 700px;
+    margin: auto;
+}
+
+.subtitle {
+    margin: 0 0 2px;
+
+    color: var(--secondary-text);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.icon-button {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--card);
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================
+   CONTENUTO
+   ========================= */
+
+main {
+    max-width: 700px;
+    margin: auto;
+
+    padding:
+        5px
+        18px
+        calc(var(--nav-height) + 35px);
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================
+   MESE
+   ========================= */
+
+.month-header {
+    margin: 10px 2px 18px;
+}
+
+.month-header p {
+    margin: 0 0 2px;
+
+    color: var(--secondary-text);
+
+    font-size: 14px;
+}
+
+.month-header h2 {
+    margin: 0;
+
+    font-size: 23px;
+    font-weight: 750;
+}
+
+
+/* =========================
+   CARD PRINCIPALE
+   ========================= */
+
+.main-card {
+    padding: 25px;
+
+    background: var(--primary);
+    color: var(--primary-text);
+
+    border-radius: var(--radius);
+
+    margin-bottom: 13px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+.main-card p {
+    margin: 0 0 7px;
+
+    font-size: 14px;
+
+    opacity: 0.7;
+}
+
+.main-card h3 {
+    margin: 0;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================
+   STATISTICHE HOME
+   ========================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    padding: 18px;
+
+    background: var(--card);
+
+    border-radius: var(--radius);
+
+    border: 1px solid var(--border);
+}
+
+.stat-card span {
+    display: block;
+
+    font-size: 21px;
+
+    margin-bottom: 13px;
+}
+
+.stat-card p {
+    margin: 0 0 5px;
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+}
+
+.stat-card strong {
+    display: block;
+
+    font-size: 21px;
+}
+
+
+/* =========================
+   PULSANTE PRINCIPALE
+   ========================= */
+
+.primary-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 16px;
+
+    padding: 16px 18px;
+
+    background: var(--primary);
+    color: var(--primary-text);
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s ease,
+        opacity 0.1s ease;
+}
+
+.primary-button:active {
+    transform: scale(0.98);
+    opacity: 0.85;
+}
+
+
+/* =========================
+   TITOLI SEZIONI
+   ========================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 30px 3px 13px;
+}
+
+.section-title h3 {
+    margin: 0;
+
+    font-size: 19px;
+}
+
+.section-title button {
+    border: none;
+    background: transparent;
+
+    color: var(--secondary-text);
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   LISTA SERVIZI
+   ========================= */
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.service-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.service-info {
+    min-width: 0;
+}
+
+.service-info h4 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.service-info p {
+    margin: 0;
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+}
+
+.service-money {
+    text-align: right;
+
+    flex-shrink: 0;
+}
+
+.service-money strong {
+    display: block;
+
+    font-size: 17px;
+}
+
+.service-money small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--secondary-text);
+}
+
+
+/* =========================
+   STATO VUOTO
+   ========================= */
+
+.empty-state {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.empty-icon {
+    font-size: 34px;
+
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    margin: 0 0 6px;
+
+    font-size: 17px;
+}
+
+.empty-state p {
+    margin: 0;
+
+    color: var(--secondary-text);
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   HEADER PAGINE
+   ========================= */
+
+.page-header {
+    display: flex;
+    align-items: center;
+
+    min-height: 55px;
+
+    margin-bottom: 18px;
+
+    position: relative;
+}
+
+.page-header h2 {
+    margin: 0;
+
+    font-size: 25px;
+    font-weight: 750;
+}
+
+.back-button {
+    width: 42px;
+    height: 42px;
+
+    margin-right: 8px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    font-size: 34px;
+    line-height: 34px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    border: 1px solid var(--border);
+    border-radius: var(--small-radius);
+
+    padding: 14px;
+
+    background: var(--card);
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 16px;
+
+    outline: none;
+
+    transition: border 0.15s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--text);
+}
+
+textarea {
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 11px;
+}
+
+
+/* =========================
+   CALCOLO NUOVO SERVIZIO
+   ========================= */
+
+.calculation-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    padding: 18px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.calculation-card div:last-child {
+    text-align: right;
+}
+
+.calculation-card p {
+    margin: 0 0 5px;
+
+    color: var(--secondary-text);
+
+    font-size: 12px;
+}
+
+.calculation-card strong {
+    font-size: 20px;
+}
+
+#calculatedEarnings {
+    color: var(--success);
+}
+
+
+/* =========================
+   IMPOSTAZIONI
+   ========================= */
+
+.settings-card {
+    padding: 20px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.currency-input {
+    position: relative;
+
+    margin-bottom: 20px;
+}
+
+.currency-input input {
+    padding-right: 60px;
+}
+
+.currency-input span {
+    position: absolute;
+
+    right: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--secondary-text);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   STATISTICHE MENSILI
+   ========================= */
+
+#monthlyStats {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.month-stat-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.month-stat-card h4 {
+    margin: 0 0 4px;
+
+    font-size: 15px;
+}
+
+.month-stat-card p {
+    margin: 0;
+
+    color: var(--secondary-text);
+
+    font-size: 12px;
+}
+
+.month-stat-card strong {
+    font-size: 17px;
+}
+
+
+/* =========================
+   NAVIGAZIONE INFERIORE
+   ========================= */
+
+.bottom-nav {
+    position: fixed;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 700px;
+
+    height: calc(var(--nav-height) + env(safe-area-inset-bottom));
+
+    padding:
+        8px
+        10px
+        calc(8px + env(safe-area-inset-bottom));
+
+    display: grid;
+    grid-template-columns:
+        1fr
+        1fr
+        62px
+        1fr
+        1fr;
+
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-top: 1px solid var(--border);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    z-index: 1000;
+}
+
+.nav-item {
+    height: 55px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    border: none;
+    background: transparent;
+
+    color: #999999;
+
+    cursor: pointer;
+}
+
+.nav-item span {
+    font-size: 21px;
+}
+
+.nav-item small {
+    font-size: 10px;
+}
+
+.nav-item.active {
+    color: var(--text);
+}
+
+.nav-add {
+    width: 52px;
+    height: 52px;
+
+    justify-self: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: var(--primary-text);
+
+    font-size: 30px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.20);
+
+    transition: transform 0.1s ease;
+}
+
+.nav-add:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================
+   DESKTOP / MAC
+   ========================= */
+
+@media (min-width: 701px) {
+
+    body {
+        background: #e9eaec;
+    }
+
+    header,
+    main {
+        background: var(--background);
+    }
+
+    header {
+        margin-top: 25px;
+
+        border-radius: 25px 25px 0 0;
+    }
+
+    main {
+        min-height: calc(100vh - 120px);
+    }
+
+    .bottom-nav {
+        bottom: 15px;
+
+        border: 1px solid var(--border);
+        border-radius: 22px;
+
+        width: calc(100% - 30px);
+    }
+}
+
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --background: #0d0d0f;
+        --card: #18181b;
+        --text: #f5f5f5;
+        --secondary-text: #96969d;
+        --border: #29292d;
+
+        --primary: #f5f5f5;
+        --primary-text: #111111;
+
+        --success: #4bd681;
+    }
+
+    html,
+    body {
+        background: var(--background);
+    }
+
+    .bottom-nav {
+        background: rgba(24, 24, 27, 0.94);
+    }
+
+    @media (min-width: 701px) {
+        body {
+            background: #050505;
+        }
+    }
+}
+
+
+/* =========================
+   PICCOLI IPHONE
+   ========================= */
+
+@media (max-width: 370px) {
+
+    main {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .main-card h3 {
+        font-size: 31px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .bottom-nav {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .nav-item small {
+        font-size: 9px;
+    }
+}
